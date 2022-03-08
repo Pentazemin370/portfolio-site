@@ -2,14 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Intro.scss";
 import Cursor from "./cursor.svg";
 import { drawBoundingRect } from "../../animations/animations";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
-type IntroProps = {
-  scrollToNext: ()=> void
-}
-
-export const Intro = React.forwardRef<HTMLElement,IntroProps>((props,ref) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const bodyRef = useRef<HTMLDivElement>(null);
+export const Intro = React.forwardRef((props, ref) => {
+  const canvasRef = useRef(null);
+  const bodyRef = useRef(null);
   const [coordinates, setCoordinates] = useState([0, 0]);
   const [initialized, setInitialized] = useState(false);
 
@@ -44,7 +42,6 @@ export const Intro = React.forwardRef<HTMLElement,IntroProps>((props,ref) => {
   return (
     <section
       className="intro-container"
-      style={{ width: window.innerWidth, height: window.innerHeight }}
       ref={ref}
     >
       <canvas
@@ -52,13 +49,17 @@ export const Intro = React.forwardRef<HTMLElement,IntroProps>((props,ref) => {
         height={window.innerHeight}
         ref={canvasRef}
       ></canvas>
-      { initialized ? null : <div
-        id="cursorIcon"
-        style={{
-          left: `${coordinates[0] - 10}px`,
-          top: `${coordinates[1]}px`,
-        }}
-      ><Cursor/></div> }
+      {initialized ? null : (
+        <div
+          id="cursorIcon"
+          style={{
+            left: `${coordinates[0] - 10}px`,
+            top: `${coordinates[1]}px`,
+          }}
+        >
+          <Cursor />
+        </div>
+      )}
       <div ref={bodyRef} className="intro">
         <div className="intro-section">
           <h1>Hi, I'm</h1>
@@ -66,7 +67,9 @@ export const Intro = React.forwardRef<HTMLElement,IntroProps>((props,ref) => {
           <h3>a full-stack web developer.</h3>
         </div>
         <div className="intro-section">
-          <button onClick={props.scrollToNext} className="cta-button">Learn More</button>
+          <button onClick={props.scrollToNext} className="cta-button">
+            Learn More <FontAwesomeIcon icon={faArrowDown} />
+          </button>
         </div>
       </div>
     </section>

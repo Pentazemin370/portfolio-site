@@ -1,10 +1,11 @@
-export const customScroll = (ref) => {
+//scrollTo "smooth" not implemented in some browsers, namely iOS mobile browsers.
+//TODO: make this work for scrolling upwards and smooth this out... or wait for browser support
+//for now, the scrollTo works well enough...
+export const customScroll = (elementRect) => {
   const scrollFactor = 20;
   const accuracyBuffer = 10;
 
   const bodyRect = document?.body?.getBoundingClientRect().top;
-  const elementRect = ref.current.getBoundingClientRect().top;
-
   const elementPosition = elementRect - bodyRect;
   const offsetPosition = elementPosition;
   const scrollStepUnit = offsetPosition/(scrollFactor);

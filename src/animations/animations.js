@@ -1,10 +1,10 @@
-export const drawCircle = (ctx: CanvasRenderingContext2D, x: number, y: number, radius: number) => {
+export const drawCircle = (ctx, x, y, radius) => {
     ctx.beginPath();
     ctx.arc(x, y, radius, 0, 2 * Math.PI);
     ctx.fill();
 };
 
-export const drawBoundingRect = (ctx: CanvasRenderingContext2D, bounds: DOMRect, padding = 0,style="black") => {
+export const drawBoundingRect = (ctx, bounds, padding = 0, style="black") => {
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
     ctx.strokeStyle = style;
     ctx.fillStyle = style;

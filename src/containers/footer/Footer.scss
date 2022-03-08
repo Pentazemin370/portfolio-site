@@ -1,0 +1,19 @@
+footer {
+    background-color: black;
+    padding:15px;
+    .footer-container {
+        display: flex;
+        align-items: center;
+        margin: 0px 10%;
+      }
+    .footer-media-link {
+        font-size:2rem;
+    }
+    .devicon-link {
+        margin: 1em 0.5em 0.5em 0;
+        svg {
+            width: 2rem;
+            height: 2rem;
+          }
+    }
+}

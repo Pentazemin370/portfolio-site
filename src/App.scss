@@ -1,89 +1,155 @@
 :root {
-    @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300&display=swap');
-    --nurture-lime-green:#00c080;
-    --nurture-green:#53a654;
-    --nurture-gray:#c0bfb3;
-    --miku-gray:#414042;
+  @import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300&display=swap");
+
+  --nurture-yellow:#fff7e4;
+  --nurture-blue:#0078c4;
+  --nurture-green: #53a654;
+  --nurture-lime-green: #00c080;
+  --nurture-gray: #c0bfb3;
+  --miku-gray: #414042;
+
+  @media screen and (max-width:400px) {
+    font-size: 12px;
+  }
+
 }
 
 * {
-    box-sizing:border-box;
+  box-sizing: border-box;
 }
 
-.h-100 {
-    height:100%;
+svg {
+  vertical-align: middle !important;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
+  color: white;
+  cursor:pointer;
+  &:hover {
+    filter: brightness(85%);
+  }
+  &:visited {
+    color: white;
+  }
+}
+
+.text-link {
+  color: var(--nurture-lime-green);
+  &:hover {
+    text-decoration: underline;
+  }
+  &:visited {
     color: var(--nurture-lime-green);
-    &:hover {
-        filter:brightness(85%);
-        text-decoration: underline;
-    }
+  }
 }
 
 body {
-    font-family: 'Readex Pro', sans-serif;
-    color:white;
-    background-color:var(--miku-gray);
-    margin:0px;
+  font-family: "Readex Pro", sans-serif;
+  color: white;
+  background-color: var(--miku-gray);
+  margin: 0px;
 }
 
+//bootstrap-ish utility classes
 .main-container {
-    margin: auto 10%;
+  margin: 0 10%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+.m-auto {
+  margin:auto;
 }
 
 .d-flex {
-    display:flex;
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
 }
 .flex-wrap {
-    flex-wrap:wrap;
+  flex-wrap: wrap;
 }
+.justify-between {
+  justify-content: space-between;
+}
+
 button {
-
-    padding:16px;
-    font-size:1em;
-    color:white;
-    background:none;
-    border:1px white solid;
-    border-radius:4px; 
+  padding: 16px;
+  font-size: 1em;
+  color: white;
+  background: none;
+  border: 1px white solid;
+  border-radius: 4px;
+  transition:all 0.3s ease-in-out;
+  &:hover {
+    background-color:white;
+    color:black;
+  }
+  &:active {
+    filter: brightness(30%);   
+  }
 }
 
-    // margin:10%;
-    // @keyframes fadeInUp {
-    //     from {
-    //         transform: translate3d(0,40px,0);
-    //         opacity:0;
-    //     }
-    
-    //     to {
-    //         transform: translate3d(0,0,0);
-    //         opacity: 1
-    //     }
-    // }
-    // //add chrome support.
-    // @-webkit-keyframes fadeInUp {
-    //     from {
-    //         transform: translate3d(0,40px,0);
-    //         opacity:0;
-    //     }
-    
-    //     to {
-    //         transform: translate3d(0,0,0);
-    //         opacity: 1
-    //     }
-    // }
-    
-    // .animated {
-    //     animation-duration: 1s;
-    //     animation-fill-mode: both;
-    //     -webkit-animation-duration: 1s;
-    //     -webkit-animation-fill-mode: both
-    // }
+//animations 
 
-    
-    // .fadeInUp {
-    //     animation-name: fadeInUp;
-    //     -webkit-animation-name: fadeInUp;
-    // }
+@keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 40px, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 40px, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    transform: translate3d(50px, 0, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeInRight {
+  from {
+    transform: translate3d(50px, 0, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.fadeInRight {
+  animation-name: fadeInRight;
+  -webkit-animation-name: fadeInRight;
+}
+.fadeInUp {
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
+}
