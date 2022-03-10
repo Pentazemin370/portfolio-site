@@ -26,11 +26,11 @@ export const Intro = React.forwardRef((props, ref) => {
       );
       const ctx = canvasRef.current.getContext("2d");
       function animate() {
-        if (!stop) {
-          rect = bodyRef.current.getBoundingClientRect();
-          setCoordinates([rect.left, rect.top + window.scrollY]);
-          drawBoundingRect(ctx, rect);
-          requestAnimationFrame(animate);
+        if (!stop && bodyRef.current) {
+            rect = bodyRef.current.getBoundingClientRect();
+            setCoordinates([rect.left, rect.top + window.scrollY]);
+            drawBoundingRect(ctx, rect);
+            requestAnimationFrame(animate);
         } else {
           ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
         }
@@ -41,11 +41,13 @@ export const Intro = React.forwardRef((props, ref) => {
 
   return (
     <section
+      width={window.innerWidth}
+      height={window.innerHeight}
       className="intro-container"
       ref={ref}
     >
       <canvas
-        width={window.innerWidth}
+        width={window.innerWidth-30}
         height={window.innerHeight}
         ref={canvasRef}
       ></canvas>

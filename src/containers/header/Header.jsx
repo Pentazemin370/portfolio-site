@@ -121,7 +121,7 @@ export const Header = (props) => {
   ];
 
   const mobileView = () => (
-    [<header>
+    [<header key="mobile-header">
       <div className="d-flex mobile-container">
         <a
           href="https://resume.creddle.io/resume/9drvyepvh8g"

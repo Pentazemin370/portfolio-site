@@ -25,7 +25,8 @@ export const Projects = React.forwardRef((props, ref) => {
             <h4>Portfolio Website</h4>
             <p>
               A lightweight React based SPA I made to showcase my work. I opted to build my own webpack configuration,
-              avoiding heavy duty frameworks like Create-React-App and Next.js.
+              avoiding heavy duty frameworks like Create-React-App and Next.js. I then levereged 
+
             </p>
             <span>
               {[
